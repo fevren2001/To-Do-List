@@ -6,10 +6,6 @@ function ToDoList(){
 
     const [newTask, setNewTask] = useState("")
 
-    useEffect(() => {
-        document.title = 1
-    });
-
     function handleNewTask(){
         const task = document.getElementById("task").value
         setNewTask(task)

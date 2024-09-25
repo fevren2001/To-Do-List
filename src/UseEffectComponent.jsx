@@ -8,6 +8,17 @@ function UseEffectComponent(){
         document.title = count
     }, [count]); // whenever count updates, we will run this code.
 
+    useEffect(() => {
+        window.addEventListener("resize", handleResize)
+        console.log("event listener added")
+
+        return() => {
+            removeEventListener("resize", handleResize);
+            console.log("event listener removed");
+        }
+    },
+    []) // the event listener will only add once when the component mounts.
+
     function handleCount(){
         setCount(c => c + 1)
     }
@@ -17,8 +28,7 @@ function UseEffectComponent(){
 
 
     {
-    window.addEventListener("resize", handleResize)
-    console.log("event listener added")
+
     }
     function handleResize(){
         setWidth(window.innerWidth)
